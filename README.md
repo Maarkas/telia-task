@@ -24,26 +24,26 @@ The page auto-updates as you edit the files.
 
 ## Additional Tasks:
 # Javascript:
-- [ ] Add button which sorts phones or phone brands alphabetically
+- [x] ~~Add button which sorts phones or phone brands alphabetically~~
 - [ ] Add filtering for phones or phone brands by any parameters (displayName, price etc.). On page load
 use url query parameters to get filters (?brand=Doro&price=274.0 etc.)
-- [ ] Add lazy loading for routes
+- [x] ~~Add lazy loading for routes~~ `One of the reasons why I chose Next.js`
 - [ ] Create a checkbox for user consent, if user does not give his consent, add route guards which tells
 user that he cannot proceed without giving his consent
 - [ ] Add button which removes phone or phone brands from the list
 - [ ] Add favorite button which save phone or phone brand in memory. Saved selections should be
 marked even after website reload
-- [ ] Force application to throw an error on any function, catch it and make user friendly message in
-website
+- [x] ~~Force application to throw an error on any function, catch it and make user friendly message in~~
+~~website~~ `One of the reasons why I chose Next.js, handles this on production`
 - [ ] Plug in any state management tool
 
 # Styling
-- [ ] Add transition or animations
-- [ ] Use mixins
-- [ ] Use pseudo classes
-- [ ] Use custom font
-- [ ] Use styling methodology
-- 
+- [x] ~~Add transition or animations~~
+- [ ] Use mixins `Wasn't used due to Material-UI styled package list use of fn useStyles()`
+- [x] ~~Use pseudo classes~~
+- [x] ~~Use custom font~~
+- [x] ~~Use styling methodology~~
+
 # HTML
-- [ ] Add smooth tab indexing on every focusable element
-- [ ] Add accessibility attributes on elements
+- [x] ~~Add smooth tab indexing on every focusable element~~
+- [x] ~~Add accessibility attributes on elements~~
