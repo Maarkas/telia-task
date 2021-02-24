@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, CardHeader, IconButton, Typography } from '@material-ui/core';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { PhoneCardProps } from './PhoneCard.types';
 import useStyles from './PhoneCard.styles';
 
 const PhoneCard: React.FunctionComponent<PhoneCardProps> = ({ name, image, price, details }) => {
-    const [mouseOver, setMouseOver] = useState(false);
+    const [mouseOver, setMouseOver] = React.useState(false);
     const classes = useStyles();
     return (
         <Card

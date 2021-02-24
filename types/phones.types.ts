@@ -15,7 +15,7 @@ export interface Phone {
 }
 
 export interface PhonesByBrandPageProps {
-    phones: PhoneDetails[];
+    brandPhones: PhoneDetails[];
 }
 
 export interface PhoneDetails {

@@ -6,5 +6,6 @@ export const locale = {
     buttons: {
         home: 'Back Home',
         goBack: 'Go Back',
+        sort: 'Sort',
     },
 };

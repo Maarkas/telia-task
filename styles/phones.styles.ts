@@ -14,4 +14,8 @@ export default makeStyles((theme: Theme) => ({
         paddingLeft: theme.spacing(8),
         paddingRight: theme.spacing(8),
     },
+    actionContainer: {
+        textAlign: 'right',
+        paddingRight: theme.spacing(8),
+    },
 }));

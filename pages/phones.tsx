@@ -1,12 +1,17 @@
 import React from 'react';
-import { Fade, Grid, Typography } from '@material-ui/core';
+import { Button, Fade, Grid, Typography } from '@material-ui/core';
 import useStyles from '../styles/phones.styles';
-import { PhoneBrandResponse, PhonePageProps } from '../types/phones.types';
+import { Phone, PhoneBrandResponse, PhonePageProps } from '../types/phones.types';
 import PhoneBrands from '../containers/PhoneBrands/PhoneBrands';
+import { sortPhonesOrBrands } from '../utils/utils';
+import { locale } from '../src/locale';
 
 const PhonesPage: React.FunctionComponent<PhonePageProps> = ({ phoneBrands }) => {
     const classes = useStyles();
+    const [sortOrder, setSortOrder] = React.useState<boolean>(false);
+    const [sortedPhones, setSortedPhones] = React.useState<Phone[]>(phoneBrands.options);
     const { headline, options } = phoneBrands;
+
     return (
         <div className={classes.root}>
             <Fade in timeout={750}>
@@ -20,6 +25,18 @@ const PhonesPage: React.FunctionComponent<PhonePageProps> = ({ phoneBrands }) =>
                         >
                             {headline}
                         </Typography>
+                    </Grid>
+                    <Grid item xs={12} className={classes.actionContainer}>
+                        <Button
+                            variant='outlined'
+                            color='primary'
+                            onClick={() => {
+                                setSortOrder(!sortOrder);
+                                setSortedPhones(sortPhonesOrBrands(sortedPhones, sortOrder));
+                            }}
+                        >
+                            {locale.buttons.sort}
+                        </Button>
                     </Grid>
                     <Grid item xs={12} className={classes.phones}>
                         {phoneBrands ? <PhoneBrands phoneBrands={options} /> : null}
