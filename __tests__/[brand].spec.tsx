@@ -2,7 +2,13 @@ import React from 'react';
 import { mount } from 'enzyme';
 import PhonesByBrandPage from '../pages/phones/[brand]';
 
-const useRouter = jest.spyOn(require('next/router'), 'useRouter');
+jest.mock('next/router', () => ({
+    useRouter() {
+        return {
+            query: { brand: 'Apple' },
+        };
+    },
+}));
 
 const mockPhones = [
     {
@@ -55,22 +61,17 @@ const mockPhones = [
 
 describe('Test of Pages', () => {
     describe('<PhonesByBrandPage>', () => {
-        beforeEach(() => {
-            useRouter.mockImplementationOnce(() => ({
-                query: { brand: 'Apple' },
-            }));
-        });
         it('Should render without throwing an error', () => {
-            const wrapper = mount(<PhonesByBrandPage phones={mockPhones} />);
+            const wrapper = mount(<PhonesByBrandPage brandPhones={mockPhones} />);
             expect(wrapper.find('h4').first().text()).toBe(mockPhones[0].brand);
         });
         it('Should render 2 cards through expected fetched data from getStaticProps', () => {
-            const wrapper = mount(<PhonesByBrandPage phones={mockPhones} />);
+            const wrapper = mount(<PhonesByBrandPage brandPhones={mockPhones} />);
             const cardNodes = wrapper.find('.MuiPaper-root');
             expect(cardNodes).toHaveLength(2);
         });
         it('Data card should have data represented on it', () => {
-            const wrapper = mount(<PhonesByBrandPage phones={mockPhones} />);
+            const wrapper = mount(<PhonesByBrandPage brandPhones={mockPhones} />);
             const cardNode = wrapper.find('.MuiPaper-root').first();
             expect(cardNode.find('.MuiCardHeader-title').first().text()).toBe(
                 mockPhones[0].displayName
