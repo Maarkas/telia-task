@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 For ease of development these things were consider for use to complete and be used for this task - React, Next.js, Typescript, Material-UI, ESLint, Prettier, Jest/Enzyme, 3rd-party packages used - `next-seo`, `next-images`, `next-optimized-images`.
 
+Time limit - from 2 to 3h
+
 ## Getting Started
 
 First, run the development server:
@@ -47,3 +49,10 @@ marked even after website reload
 # HTML
 - [x] ~~Add smooth tab indexing on every focusable element~~
 - [x] ~~Add accessibility attributes on elements~~
+
+
+# Troubleshooting
+
+There's an incompatibility with Jest. 
+If the tests are failing, Next.js changes TypeScript `"jsx": "react"` to `"jsx": "preserve"` everytime `npm run dev/next dev` is ran.
+Solution: go to `tsconfig.json` and change `"jsx": "preserve"` to `"jsx": "react"` and then you can run `npm run test`
